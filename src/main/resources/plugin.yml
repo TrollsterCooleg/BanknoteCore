@@ -1,0 +1,11 @@
+name: BanknoteCore
+version: '${project.version}'
+main: me.cooleg.banknotecore.BanknoteCore
+authors: [ Cooleg ]
+api-version: 1.18
+depend:
+  - PlayerStore
+  - PlaceholderAPI
+commands:
+  bal:
+  shop:
