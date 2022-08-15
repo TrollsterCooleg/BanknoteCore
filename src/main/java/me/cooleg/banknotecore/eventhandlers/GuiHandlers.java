@@ -2,6 +2,7 @@ package me.cooleg.banknotecore.eventhandlers;
 
 import me.cooleg.banknotecore.BanknoteCore;
 import me.cooleg.banknotecore.commands.Shop;
+import me.cooleg.banknotecore.profiles.PlayerProfile;
 import me.cooleg.banknotecore.util.GenPrices;
 import me.cooleg.banknotecore.util.ShopPrices;
 import org.bukkit.ChatColor;
@@ -55,9 +56,10 @@ public class GuiHandlers implements Listener {
 
     private void genShopClick(InventoryClickEvent e) {
         if (e.getSlot() == 13) {
-            int bal = main.storageAPI.getInt(e.getWhoClicked().getUniqueId(), "balance");
+            PlayerProfile profile = main.manager.getProfile(e.getWhoClicked().getUniqueId()).get();
+            int bal = profile.getBal();
             if (GenPrices.WHITE.price > bal) {return;}
-            main.storageAPI.storeInt(e.getWhoClicked().getUniqueId(), "balance", bal - GenPrices.WHITE.price);
+            profile.removeFromBal(GenPrices.WHITE.price);
             ItemStack item = Shop.gen1;
             ItemMeta meta = item.getItemMeta();
             meta.setLore(null);
@@ -69,9 +71,10 @@ public class GuiHandlers implements Listener {
 
     private void defenseShopClick(InventoryClickEvent e) {
         if (e.getSlot() == 10) {
-            int bal = main.storageAPI.getInt(e.getWhoClicked().getUniqueId(), "balance");
+            PlayerProfile profile = main.manager.getProfile(e.getWhoClicked().getUniqueId()).get();
+            int bal = profile.getBal();
             if (ShopPrices.DEFENSE_0.price > bal) {return;}
-            main.storageAPI.storeInt(e.getWhoClicked().getUniqueId(), "balance", bal - ShopPrices.DEFENSE_0.price);
+            profile.removeFromBal(ShopPrices.DEFENSE_0.price);
             ItemStack item = Shop.def0;
             ItemMeta meta = item.getItemMeta();
             meta.setLore(null);
@@ -80,9 +83,10 @@ public class GuiHandlers implements Listener {
             return;
         }
         if (e.getSlot() == 12) {
-            int bal = main.storageAPI.getInt(e.getWhoClicked().getUniqueId(), "balance");
+            PlayerProfile profile = main.manager.getProfile(e.getWhoClicked().getUniqueId()).get();
+            int bal = profile.getBal();
             if (ShopPrices.DEFENSE_1.price > bal) {return;}
-            main.storageAPI.storeInt(e.getWhoClicked().getUniqueId(), "balance", bal - ShopPrices.DEFENSE_1.price);
+            profile.removeFromBal(ShopPrices.DEFENSE_1.price);
             ItemStack item = Shop.def1;
             ItemMeta meta = item.getItemMeta();
             meta.setLore(null);
@@ -91,9 +95,10 @@ public class GuiHandlers implements Listener {
             return;
         }
         if (e.getSlot() == 14) {
-            int bal = main.storageAPI.getInt(e.getWhoClicked().getUniqueId(), "balance");
+            PlayerProfile profile = main.manager.getProfile(e.getWhoClicked().getUniqueId()).get();
+            int bal = profile.getBal();
             if (ShopPrices.DEFENSE_2.price > bal) {return;}
-            main.storageAPI.storeInt(e.getWhoClicked().getUniqueId(), "balance", bal - ShopPrices.DEFENSE_2.price);
+            profile.removeFromBal(ShopPrices.DEFENSE_2.price);
             ItemStack item = Shop.def2;
             ItemMeta meta = item.getItemMeta();
             meta.setLore(null);
@@ -102,9 +107,10 @@ public class GuiHandlers implements Listener {
             return;
         }
         if (e.getSlot() == 16) {
-            int bal = main.storageAPI.getInt(e.getWhoClicked().getUniqueId(), "balance");
+            PlayerProfile profile = main.manager.getProfile(e.getWhoClicked().getUniqueId()).get();
+            int bal = profile.getBal();
             if (ShopPrices.DEFENSE_3.price > bal) {return;}
-            main.storageAPI.storeInt(e.getWhoClicked().getUniqueId(), "balance", bal - ShopPrices.DEFENSE_3.price);
+            profile.removeFromBal(ShopPrices.DEFENSE_3.price);
             ItemStack item = Shop.def3;
             ItemMeta meta = item.getItemMeta();
             meta.setLore(null);
@@ -117,9 +123,10 @@ public class GuiHandlers implements Listener {
     private void raidShopClick(InventoryClickEvent e) {
         // Doesnt cost money yet as its just for testing right now
         if (e.getSlot() == 11) {
-            int bal = main.storageAPI.getInt(e.getWhoClicked().getUniqueId(), "balance");
+            PlayerProfile profile = main.manager.getProfile(e.getWhoClicked().getUniqueId()).get();
+            int bal = profile.getBal();
             if (ShopPrices.BOMB_1.price > bal) {return;}
-            main.storageAPI.storeInt(e.getWhoClicked().getUniqueId(), "balance", bal - ShopPrices.BOMB_1.price);
+            profile.removeFromBal(ShopPrices.BOMB_1.price);
             ItemStack item = Shop.bomb1;
             ItemMeta meta = item.getItemMeta();
             meta.setLore(null);
@@ -128,9 +135,10 @@ public class GuiHandlers implements Listener {
             return;
         }
         if (e.getSlot() == 13) {
-            int bal = main.storageAPI.getInt(e.getWhoClicked().getUniqueId(), "balance");
+            PlayerProfile profile = main.manager.getProfile(e.getWhoClicked().getUniqueId()).get();
+            int bal = profile.getBal();
             if (ShopPrices.BOMB_2.price > bal) {return;}
-            main.storageAPI.storeInt(e.getWhoClicked().getUniqueId(), "balance", bal - ShopPrices.BOMB_2.price);
+            profile.removeFromBal(ShopPrices.BOMB_2.price);
             ItemStack item = Shop.bomb2;
             ItemMeta meta = item.getItemMeta();
             meta.setLore(null);
@@ -139,9 +147,10 @@ public class GuiHandlers implements Listener {
             return;
         }
         if (e.getSlot() == 15) {
-            int bal = main.storageAPI.getInt(e.getWhoClicked().getUniqueId(), "balance");
+            PlayerProfile profile = main.manager.getProfile(e.getWhoClicked().getUniqueId()).get();
+            int bal = profile.getBal();
             if (ShopPrices.BOMB_3.price > bal) {return;}
-            main.storageAPI.storeInt(e.getWhoClicked().getUniqueId(), "balance", bal - ShopPrices.BOMB_3.price);
+            profile.removeFromBal(ShopPrices.BOMB_3.price);
             ItemStack item = Shop.bomb3;
             ItemMeta meta = item.getItemMeta();
             meta.setLore(null);
@@ -153,9 +162,10 @@ public class GuiHandlers implements Listener {
 
     private void miscShopClick(InventoryClickEvent e) {
         if (e.getSlot() == 15) {
-            int bal = main.storageAPI.getInt(e.getWhoClicked().getUniqueId(), "balance");
+            PlayerProfile profile = main.manager.getProfile(e.getWhoClicked().getUniqueId()).get();
+            int bal = profile.getBal();
             if (1000 > bal) {return;}
-            main.storageAPI.storeInt(e.getWhoClicked().getUniqueId(), "balance", bal - 1000);
+            profile.removeFromBal(1000);
             ItemStack item = Shop.misc1;
             ItemMeta meta = item.getItemMeta();
             meta.setLore(null);

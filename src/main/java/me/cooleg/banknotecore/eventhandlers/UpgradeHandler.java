@@ -1,6 +1,7 @@
 package me.cooleg.banknotecore.eventhandlers;
 
 import me.cooleg.banknotecore.BanknoteCore;
+import me.cooleg.banknotecore.profiles.PlayerProfile;
 import me.cooleg.banknotecore.util.GenPrices;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
@@ -25,9 +26,10 @@ public class UpgradeHandler implements Listener {
                     int newLevel = genPrices.level + 1;
                     for (GenPrices genPricesv2 : GenPrices.values()) {
                         if (genPricesv2.level == newLevel) {
-                            int bal = BanknoteCore.getMain().storageAPI.getInt(e.getPlayer().getUniqueId(), "balance");
+                            PlayerProfile profile = BanknoteCore.getMain().manager.getProfile(e.getPlayer().getUniqueId()).get();
+                            int bal = profile.getBal();
                             if (bal >= genPricesv2.price) {
-                                BanknoteCore.getMain().storageAPI.storeInt(e.getPlayer().getUniqueId(), "balance", bal - genPricesv2.price);
+                                profile.removeFromBal(genPricesv2.price);
                                 e.getClickedBlock().setType(genPricesv2.block);
                                 return;
                             } else {

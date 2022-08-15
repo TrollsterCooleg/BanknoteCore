@@ -1,6 +1,5 @@
 package me.cooleg.banknotecore.commands;
 
-import me.clip.placeholderapi.libs.kyori.adventure.platform.facet.Facet;
 import me.cooleg.banknotecore.BanknoteCore;
 import me.cooleg.banknotecore.util.GenPrices;
 import me.cooleg.banknotecore.util.GetSkull;
@@ -16,7 +15,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 import org.jetbrains.annotations.NotNull;
 

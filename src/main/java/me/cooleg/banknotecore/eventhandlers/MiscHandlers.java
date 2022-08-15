@@ -1,6 +1,7 @@
 package me.cooleg.banknotecore.eventhandlers;
 
 import me.cooleg.banknotecore.BanknoteCore;
+import me.cooleg.banknotecore.profiles.PlayerProfile;
 import me.cooleg.banknotecore.util.GenPrices;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -48,7 +49,8 @@ public class MiscHandlers implements Listener {
                 total += storedamount;
                 e.getPlayer().getInventory().remove(item);
             }
-            main.storageAPI.storeInt(e.getPlayer().getUniqueId(), "balance", main.storageAPI.getInt(e.getPlayer().getUniqueId(), "balance")+total);
+            PlayerProfile profile = main.manager.getProfile(e.getPlayer().getUniqueId()).get();
+            profile.addToBal(total);
         }
     }
 

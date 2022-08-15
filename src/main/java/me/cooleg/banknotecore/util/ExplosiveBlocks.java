@@ -2,8 +2,6 @@ package me.cooleg.banknotecore.util;
 
 import org.bukkit.Material;
 
-import java.util.logging.Level;
-
 public enum ExplosiveBlocks {
 
     Tier0(Material.STONE, 0),

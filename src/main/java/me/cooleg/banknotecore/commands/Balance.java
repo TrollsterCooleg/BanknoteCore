@@ -16,7 +16,7 @@ public class Balance implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
-            sender.sendMessage(ChatColor.GOLD + "Balance: " + ChatColor.GREEN + main.storageAPI.getInt(((Player) sender).getUniqueId(), "balance"));
+            sender.sendMessage(ChatColor.GOLD + "Balance: " + ChatColor.GREEN + main.manager.getProfile(((Player) sender).getUniqueId()).get().getBal());
         }
         return true;
     }

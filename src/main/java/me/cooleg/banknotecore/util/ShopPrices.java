@@ -1,7 +1,5 @@
 package me.cooleg.banknotecore.util;
 
-import org.bukkit.inventory.ItemStack;
-
 public enum ShopPrices {
 
     BOMB_1(20000),

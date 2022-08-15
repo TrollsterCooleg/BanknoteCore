@@ -6,6 +6,7 @@ import me.cooleg.banknotecore.eventhandlers.BombHandler;
 import me.cooleg.banknotecore.eventhandlers.GuiHandlers;
 import me.cooleg.banknotecore.eventhandlers.MiscHandlers;
 import me.cooleg.banknotecore.eventhandlers.UpgradeHandler;
+import me.cooleg.banknotecore.profiles.ProfileManager;
 import me.cooleg.banknotecore.util.Placeholder;
 import me.cooleg.playerstore.PlayerStore;
 import me.cooleg.playerstore.StorageAPI;
@@ -16,6 +17,7 @@ public final class BanknoteCore extends JavaPlugin {
 
     private PlayerStore playerStore = (PlayerStore) Bukkit.getServer().getPluginManager().getPlugin("PlayerStore");
     public StorageAPI storageAPI = playerStore.api;
+    public ProfileManager manager;
 
     public Shop shop;
     private static BanknoteCore main;
@@ -41,6 +43,7 @@ public final class BanknoteCore extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new MiscHandlers(), this);
         Bukkit.getPluginManager().registerEvents(new BombHandler(), this);
         Bukkit.getPluginManager().registerEvents(new UpgradeHandler(), this);
+        Bukkit.getPluginManager().registerEvents(manager = new ProfileManager(), this);
     }
 
     public static BanknoteCore getMain() {

@@ -29,7 +29,7 @@ public class Placeholder extends PlaceholderExpansion {
 
     @Override
     public String onRequest(OfflinePlayer player, String params) {
-        if (params.equals("bal")) {return String.valueOf(main.storageAPI.getInt(player.getUniqueId(), "balance"));}
+        if (params.equals("bal")) {return String.valueOf(main.manager.getProfile(player.getUniqueId()).get().getBal());}
         return "";
     }
 }
