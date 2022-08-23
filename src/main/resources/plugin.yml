@@ -1,7 +1,7 @@
 name: BanknoteCore
 version: '${project.version}'
 main: me.cooleg.banknotecore.BanknoteCore
-description: Pretty awful banknote plugin thing because I was really bored
+description: Pretty awful banknote plugin thing because I was really bored.
 authors: [ Cooleg ]
 api-version: 1.18
 depend:
