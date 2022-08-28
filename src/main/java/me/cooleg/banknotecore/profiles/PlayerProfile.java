@@ -17,8 +17,8 @@ public class PlayerProfile {
     public UUID getUUID() {return id;}
     public int getBal() {return bal;}
     public void setBal(int bal) {this.bal = bal;}
-    public void addToBal(int num) {bal = bal + num;}
-    public void removeFromBal(int num) {bal = bal - num;}
+    public void addToBal(int num) {bal += num;}
+    public void removeFromBal(int num) {bal -= num;}
 
     public void saveProfile() {BanknoteCore.getMain().storageAPI.storeInt(id, "balance", bal);}
 
