@@ -19,6 +19,7 @@ public class UpgradeHandler implements Listener {
     @EventHandler
     public void genUpgrade(PlayerInteractEvent e) {
         if (e.getAction() != Action.RIGHT_CLICK_BLOCK) {return;}
+        if (!e.getPlayer().isSneaking()) {return;}
         if (!map.containsKey(e.getPlayer().getUniqueId()) || map.get(e.getPlayer().getUniqueId()) <= System.currentTimeMillis()) {
             map.put(e.getPlayer().getUniqueId(), System.currentTimeMillis() + 1000);
             for (GenPrices genPrices : GenPrices.values()) {
